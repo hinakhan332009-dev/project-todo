@@ -1,0 +1,120 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  margin: 0;
+  padding: 0;
+}
+
+/* CENTER CONTAINER (LOGIN + REGISTER) */
+.container {
+  width: 360px;
+  margin: 80px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* HEADINGS */
+h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* INPUTS */
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76,175,80,0.3);
+}
+
+/* BUTTONS */
+button {
+  width: 100%;
+  padding: 12px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #3e8e41;
+}
+
+/* TASK PAGE LAYOUT (WIDER) */
+.task-container {
+  width: 600px;
+  margin: 50px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* TASK CARD */
+.task {
+  background: #f9f9f9;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border-left: 5px solid #4CAF50;
+  text-align: left;
+}
+
+.task h4 {
+  margin: 0;
+}
+
+.task p {
+  margin: 5px 0;
+  color: #555;
+}
+
+/* TASK BUTTONS */
+.task button {
+  width: auto;
+  padding: 6px 10px;
+  font-size: 12px;
+  margin-right: 5px;
+  border-radius: 6px;
+}
+
+/* SPECIAL BUTTON COLORS */
+.task button:nth-child(3) {
+  background: #2196F3;
+}
+
+.task button:nth-child(4) {
+  background: #f44336;
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+  background: #ff4d4d;
+  margin-bottom: 10px;
+}
+
+.logout-btn:hover {
+  background: #d93636;
+}
+
+/* MESSAGE TEXT */
+#msg {
+  color: red;
+  margin-top: 10px;
+}

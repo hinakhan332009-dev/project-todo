@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Tasks</title>
+</head>
+<body>
+<div class="container">
+  <h2>My Tasks</h2>
+
+  <button onclick="logout()">Logout</button>
+
+  <h3>Add Task</h3>
+
+  <input type="text" id="title" placeholder="Title" />
+  <br><br>
+
+  <input type="text" id="description" placeholder="Description" />
+  <br><br>
+
+  <button onclick="addTask()">Add Task</button>
+
+  <h3>Task List</h3>
+
+  <div id="taskList"></div>
+  
+</div>
+
+  <script>
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      window.location.href = "login.html";
+    }
+
+    async function loadTasks() {
+      const res = await fetch("http://localhost:5000/api/tasks/my", {
+        headers: {
+          Authorization: token
+        }
+      });
+
+      const tasks = await res.json();
+
+      let html = "";
+
+      tasks.forEach(task => {
+        html += `
+          <div style="border:1px solid black; margin:10px; padding:10px">
+            <h4>${task.title}</h4>
+            <p>${task.description}</p>
+            <p>Status: ${task.completed ? "Done" : "Pending"}</p>
+
+            <button onclick="completeTask('${task._id}')">Complete</button>
+            <button onclick="deleteTask('${task._id}')">Delete</button>
+          </div>
+        `;
+      });
+
+      document.getElementById("taskList").innerHTML = html;
+    }
+
+    async function addTask() {
+      const title = document.getElementById("title").value;
+      const description = document.getElementById("description").value;
+
+      await fetch("http://localhost:5000/api/tasks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token
+        },
+        body: JSON.stringify({ title, description })
+      });
+
+      loadTasks();
+    }
+
+    async function completeTask(id) {
+      await fetch(`http://localhost:5000/api/tasks/${id}/complete`, {
+        method: "PUT",
+        headers: {
+          Authorization: token
+        }
+      });
+
+      loadTasks();
+    }
+
+    async function deleteTask(id) {
+      await fetch(`http://localhost:5000/api/tasks/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: token
+        }
+      });
+
+      loadTasks();
+    }
+
+    function logout() {
+      localStorage.removeItem("token");
+      window.location.href = "login.html";
+    }
+
+    loadTasks();
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+
+</body>
+</html>
