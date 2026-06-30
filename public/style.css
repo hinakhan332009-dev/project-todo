@@ -5,6 +5,31 @@ body {
   padding: 0;
 }
 
+.navbar {
+  background: #333;
+  padding: 15px 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.navbar a:hover {
+  opacity: 0.8;
+}
+
+.navbar div:first-child {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
 /* CENTER CONTAINER (LOGIN + REGISTER) */
 .container {
   width: 600px;
