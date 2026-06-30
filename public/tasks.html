@@ -7,21 +7,18 @@
 <div class="container">
   <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
     <h2 style="margin:0;">My Tasks</h2>
-    <button onclick="logout()" style="padding:8px 12px; background:#dc3545; color:white; border:none; border-radius:4px; cursor:pointer;">Logout</button>
   </div>
 
-  <h3>Add Task</h3>
-
+  <button onclick="logout()" style="padding:8px 12px; background:#dc3545; color:white; border:none; border-radius:4px; cursor:pointer;">Logout</button>
+  
+  <h3>Adding New Tasks</h3>
   <input type="text" id="title" placeholder="Title" />
-  <br><br>
-
+  <br>
   <input type="text" id="description" placeholder="Description" />
-  <br><br>
-
+  <br>
   <button onclick="addTask()">Add Task</button>
 
   <h3>Task List</h3>
-
   <div id="taskList"></div>
   
 </div>
